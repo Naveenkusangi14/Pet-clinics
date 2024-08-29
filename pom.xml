@@ -81,7 +81,24 @@
         <docker.image.prefix>springcommunity</docker.image.prefix>
 
     </properties>
+ <!-- StartNexus server -->
 
+
+<distributionManagement>
+  <repository>
+    <id>maven-releases</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://172.17.0.1:8082/repository/maven-releases/</url>
+  </repository>
+  <snapshotRepository>
+    <id>maven-snapshots</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://172.17.0.1:8082/repository/maven-releases/</url>
+  </snapshotRepository>
+</distributionManagement>
+
+             
+ <!--  Nexus server  END -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -98,6 +115,7 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+                 
         </dependencies>
     </dependencyManagement>
 
@@ -292,24 +310,7 @@
 
 
 
- <!-- StartNexus server -->
 
-
-<distributionManagement>
-  <repository>
-    <id>maven-releases</id>
-    <!-- CHANGE HERE by your team Nexus server -->
-    <url>http://172.17.0.1:8082/repository/maven-releases/</url>
-  </repository>
-  <snapshotRepository>
-    <id>maven-snapshots</id>
-    <!-- CHANGE HERE by your team Nexus server -->
-    <url>http://172.17.0.1:8082/repository/maven-releases/</url>
-  </snapshotRepository>
-</distributionManagement>
-
-             
- <!--  Nexus server  END -->
 
 
              
@@ -576,16 +577,22 @@
    </profiles>
 
          
-<repository>
-  <id>maven-releases</id>
-  <name>maven-releases</name>
-  <url>http://http://172.17.0.1:8082/repository/maven-releases/</url>
-</repository>
 
 
 
          
     <repositories>
+
+<repository>
+  <id>maven-releases</id>
+  <name>maven-releases</name>
+  <url>http://172.17.0.1:8082/repository/maven-releases/</url>
+</repository>
+
+
+
+
+             
         <repository>
             <id>repository.spring.milestone</id>
             <name>Spring Milestone Repository</name>
