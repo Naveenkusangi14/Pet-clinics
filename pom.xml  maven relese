@@ -289,8 +289,38 @@
             <version>${javax-activation.version}</version>
         </dependency>
 
+
+
+
+ <!-- StartNexus server -->
+
+
+<distributionManagement>
+  <repository>
+    <id>maven-releases</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://172.17.0.1:8082/repository/maven-releases/</url>
+  </repository>
+  <snapshotRepository>
+    <id>maven-snapshots</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://172.17.0.1:8082/repository/maven-releases/</url>
+  </snapshotRepository>
+</distributionManagement>
+
+             
+ <!--  Nexus server  END -->
+
+
+             
     </dependencies>
 
+
+
+
+         
+
+         
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
     <build>
         <defaultGoal>install</defaultGoal>
@@ -545,6 +575,16 @@
         </profile>
    </profiles>
 
+         
+<repository>
+  <id>maven-releases</id>
+  <name>maven-releases</name>
+  <url>http://http://172.17.0.1:8082/repository/maven-releases/</url>
+</repository>
+
+
+
+         
     <repositories>
         <repository>
             <id>repository.spring.milestone</id>
